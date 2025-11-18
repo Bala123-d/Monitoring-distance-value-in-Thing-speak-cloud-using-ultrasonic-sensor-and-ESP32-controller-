@@ -97,43 +97,12 @@ Prototype and build IoT systems without setting up servers or developing web sof
 
  
 # PROGRAM:
-```
-  if (inChar == '\n' || inChar == '\r') {
-  stringComplete = true;
-  rxbuff[rxbuff_index]='\0';
-   if(strncmp(rxbuff,"JOINED",6)==0){
-    network_joined_status=1;
-  }
-  if(strncmp(rxbuff,"Dragino LA66 Device",19)==0){
-    network_joined_status=0;
-  }
-  if(strncmp(rxbuff,"Run AT+RECVB=? to see detail",28)==0){
-    time_to_at_recvb=true;
-    stringComplete=false;
-    inputString = "\0";
-  }
-  if(strncmp(rxbuff,"AT+RECVB=",9)==0){       
-    stringComplete=false;
-    inputString = "\0";
-    Serial.print("\r\nGet downlink data(FPort & Payload) ");
-    Serial.println(&rxbuff[9]);
-  }
-   rxbuff_index=0;
-  if(get_LA66_data_status==true){
-    stringComplete=false;
-    inputString = "\0";
-  }
-}
-```
+
 # CIRCUIT DIAGRAM:
-![WhatsApp Image 2025-11-12 at 14 21 16_557ef3f1](https://github.com/user-attachments/assets/328cf6a9-5d6c-4053-a0ab-5866d3c70880)
 
 # OUTPUT:
-<img width="1920" height="1200" alt="Screenshot 2025-11-12 093642" src="https://github.com/user-attachments/assets/0280c95c-3c5c-4965-90b2-e8f89dbd4dfb" />
 
-<img width="1920" height="1200" alt="Screenshot 2025-11-12 093626" src="https://github.com/user-attachments/assets/43480f46-23ff-4e8f-b6d8-80192b5b18ab" />
 
-<img width="1919" height="1088" alt="Screenshot 2025-11-12 092429" src="https://github.com/user-attachments/assets/ab31ccba-3e5a-4c2a-bd8a-b9eac98217c1" />
 
 # RESULT:
 Thus the distance values are updated in the Thing speak cloud using ESP32 controller.
